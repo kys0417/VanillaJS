@@ -1,18 +1,12 @@
-body {
-    background-color: cornflowerblue;
-  }
-  h1 {
-    color: white;
-  }
-  .step3 {
-    background-color: purple;
-    color: white;
-  }
-  .step2 {
-    background-color: yellow;
-    color: white;
-  }
-  .step1 {
-    background-color: cornflowerblue;
-    color: white;
-  }
+.step3 {
+  background-color: purple;
+  color: white;
+}
+.step2 {
+  background-color: darkorange;
+  color: white;
+}
+.step1 {
+  background-color: cornflowerblue;
+  color: white;
+}
