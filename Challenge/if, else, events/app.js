@@ -1,4 +1,5 @@
 const body = document.querySelector("body");
+const h1 = document.getElementsByClassName("h1");
 
 function handleInnerwidth() {
   if (window.innerWidth < 500) {
@@ -15,5 +16,5 @@ function handleInnerwidth() {
     body.classList.remove("step2");
   }
 }
-
+console.log(h1);
 window.addEventListener("resize", handleInnerwidth);

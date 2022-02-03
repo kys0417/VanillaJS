@@ -1,20 +1,30 @@
-// const h1 = document.querySelector("h1");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
 
-// function handleTitleClick() {
-//     const clickedClass = "clicked"
-//     if(h1.classList.contains(clickedClass)){ /*h1.className == clickedClass*/ 
-//         h1.classList.remove(clickedClass) /*h1.className = "";*/
-//     } else{
-//         h1.classList.add(clickedClass); /*h1.className = clickedClass;*/
-//     }
-// }
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
 
-// h1.addEventListener("click", handleTitleClick);
+function onLoginSubmit(event) {
+  event.preventDefault();
+  loginForm.classList.add(HIDDEN_CLASSNAME);
+  const username = loginInput.value;
+  localStorage.setItem(USERNAME_KEY, username);
 
-const h1 = document.querySelector("h1");
-
-function handleTitleClick() {
-    h1.classList.toggle("clicked");
+  paintGreeting(username);
 }
 
-h1.addEventListener("click", handleTitleClick);
+function paintGreeting(username) {
+  greeting.innerText = `Hello ${username}`;
+  greeting.classList.remove(HIDDEN_CLASSNAME);
+}
+
+const saveUsername = localStorage.getItem(USERNAME_KEY);
+
+if (saveUsername === null) {
+  loginForm.classList.remove(HIDDEN_CLASSNAME);
+  loginForm.addEventListener("submit", onLoginSubmit);
+} else {
+  // 새로고침 했을때 username = null 이 아니라면 text를 유지하기 위한 코드
+  paintGreeting(saveUsername);
+}
